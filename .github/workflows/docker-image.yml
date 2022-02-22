@@ -1,0 +1,27 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        USER: ${{ secrets.USER }}
+        PASS: ${{ secrets.PASS }}
+      run: |
+        echo $USER
+        echo $PASS
+        docker build . --file Dockerfile --tag 5285/ISS:$(date +%s)
+        docker login -u 5285 -p Welcome@123
+        
+        docker push 5285/ISS:$(date +%s)
