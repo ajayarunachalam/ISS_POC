@@ -21,7 +21,7 @@ jobs:
       run: |
         echo $USER
         echo $PASS
-        docker build . --file Dockerfile --tag 5285/ISS:$(date +%s)
+        docker build . --file Dockerfile --tag 5285/iss:$(date +%s)
         docker login -u 5285 -p Welcome@123
         
-        docker push 5285/ISS:$(date +%s)
+        docker push 5285/iss:$(date +%s)
