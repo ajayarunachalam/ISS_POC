@@ -22,6 +22,6 @@ jobs:
         echo $USER
         echo $PASS
         docker build . --file Dockerfile --tag 5285/iss:v1
-        docker login -u 5285 -p Welcome@123
+        docker login -u your_docker_username -p your_docker_password
         
-        docker push 5285/iss:v1
+        docker push your_docker_username/iss:v1
